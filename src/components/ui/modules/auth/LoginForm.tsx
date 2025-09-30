@@ -17,6 +17,9 @@ import { z } from "zod";
 // import { toast } from "sonner";
 import Password from "@/components/ui/Password";
 import Link from "next/link";
+import { signInWithGoogle } from "@/actions/authActions";
+import GoogleLogin from "./GoogleLogin";
+import GoogleSignout from "./GoogleSignout";
 
 export function LoginForm({
   className,
@@ -57,6 +60,7 @@ export function LoginForm({
   return (
     <Form {...form}>
       <form
+      action={signInWithGoogle}
         onSubmit={form.handleSubmit(onSubmit)}
         className={cn("flex flex-col gap-6", className)}
         {...props}
@@ -113,13 +117,16 @@ export function LoginForm({
             </span>
           </div>
 
-          <Button
+          {/* <Button
+            onClick={() => signIn("google", { callbackUrl: "/" })}
             type="button"
             variant="outline"
             className="w-full cursor-pointer"
           >
             Login with Google
-          </Button>
+          </Button> */}
+          <GoogleLogin/>
+          <GoogleSignout/>
         </div>
 
         <div className="text-center text-sm">

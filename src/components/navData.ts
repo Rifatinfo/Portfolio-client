@@ -1,4 +1,4 @@
-import { Home, Settings, FileText, Users } from "lucide-react";
+import { Home, Settings, FileText, Users, LogOut } from "lucide-react";
 
 export const navData = [
   {
@@ -14,6 +14,7 @@ export const navData = [
     items: [
       { title: "Profile", url: "/settings/profile", icon: Settings },
       { title: "Account", url: "/settings/account", icon: Settings },
+      { title: "Logout", url: "/logout", icon: LogOut, isLogout: true },
     ],
   },
 ];
