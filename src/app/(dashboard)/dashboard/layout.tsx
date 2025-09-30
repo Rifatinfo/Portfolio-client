@@ -1,4 +1,6 @@
+import { auth } from "@/auth/authSetup";
 import Sidebar from "@/components/sidebar";
+import { Button } from "@/components/ui/button";
 
 import { Separator } from "@/components/ui/separator"
 import {
@@ -6,17 +8,29 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-const DashboardLayout = ({
+import Link from "next/link";
+const DashboardLayout = async ({
     children,
 }: {
     children: React.ReactNode
 }) => {
+
+    const session = await auth();
+    if(!session){
+        return (
+      <div className="flex h-screen w-full items-center justify-center bg-gray-100">
+        <div className="rounded-xl bg-white p-8 shadow-lg text-center">
+          <h1 className="text-2xl font-bold text-red-500 mb-2">
+            You Are Not Authorized
+          </h1>
+          <p className="text-gray-600">Please log in to access this page.</p>
+           <Link href="/login"><Button className="mt-6 bg-red-500 text-white cursor-pointer">Login</Button></Link>
+        </div>
+      </div>
+    )
+    }
     return (
         <div>
-            {/* <main className="min-h-dvh flex gap-4">
-                <Sidebar/>
-                {children}
-            </main> */}
 
             <SidebarProvider>
                 <Sidebar />

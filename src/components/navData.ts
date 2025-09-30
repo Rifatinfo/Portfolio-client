@@ -1,20 +1,32 @@
-import { Home, Settings, FileText, Users, LogOut } from "lucide-react";
+import { Home,  FileText, Users, LogOut } from "lucide-react";
 
-export const navData = [
+type NavItem = {
+  title : string,
+  url : string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  icon : React.ComponentType<any>,
+  isLogout? : boolean
+};
+
+type NavSection = {
+  title : string,
+  items : NavItem[]
+};
+
+export const navData  : NavSection[] = [
   {
     title: "Main",
     items: [
       { title: "Home", url: "/", icon: Home },
-      { title: "Users", url: "/users", icon: Users },
-      { title: "Reports", url: "/reports", icon: FileText },
+      { title: "Blog", url: "/dashboard/create-blog", icon: Users },
+      { title: "Project", url: "/dashboard/project", icon: FileText },
     ],
   },
   {
     title: "Settings",
     items: [
-      { title: "Profile", url: "/settings/profile", icon: Settings },
-      { title: "Account", url: "/settings/account", icon: Settings },
-      { title: "Logout", url: "/logout", icon: LogOut, isLogout: true },
+      { title: "Logout", url: "/login", icon: LogOut, isLogout: true },
     ],
   },
 ];
+

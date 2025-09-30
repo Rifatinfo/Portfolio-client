@@ -5,7 +5,7 @@ const AuthLayout = ({
   children: React.ReactNode
 }) => {
     return (
-        <div className="">
+        <div>
             <main>{children}</main>
         </div>
     );

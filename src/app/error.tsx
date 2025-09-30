@@ -1,20 +1,21 @@
-'use client' // Error boundaries must be Client Components
- 
-export default function GlobalError({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+"use client"
+
+export default function Error({
   error,
   reset,
 }: {
-  error: Error & { digest?: string }
+  error: Error
   reset: () => void
 }) {
   return (
-    // global-error must include html and body tags
-    <html>
-      <body>
-        <h2>Something went wrong!</h2>
-        <button onClick={() => reset()}>Try again</button>
-      </body>
-    </html>
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h2 className="text-xl font-bold">Something went wrong!</h2>
+      <button
+        onClick={() => reset()}
+        className="mt-4 rounded bg-black px-4 py-2 text-white"
+      >
+        Try again
+      </button>
+    </div>
   )
 }

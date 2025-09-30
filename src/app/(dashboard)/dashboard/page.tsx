@@ -1,10 +1,19 @@
+import { auth } from "@/auth/authSetup";
 
-const DashboardHomePage  = () => {
-    return (
-        <div>
-             <h1>Dashboard Home Page</h1>
-        </div>
-    );
-};
+export default async function DashboardHome() {
+  const quote = "The secret of getting ahead is getting started. – Mark Twain";
 
-export default DashboardHomePage ;
+  const session = await auth();
+
+  return (
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-5 w-full">
+      <h1 className="text-4xl font-bold text-gray-800 mb-4">
+        Welcome, {session?.user?.name}!
+      </h1>
+      <p className="text-lg text-gray-600 italic text-center">
+        {session?.user?.email}
+      </p>
+      <p className="text-lg text-gray-600 italic text-center">{quote}</p>
+    </div>
+  );
+}
