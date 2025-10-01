@@ -1,8 +1,9 @@
+import Image from "next/image";
 
 const DevImg = () => {
     return (
-        <div>
-            <p>DevImg</p>
+        <div className="">
+            <Image src='/assets/hero/cover_2.svg' width={510} height={462} alt=''></Image>
         </div>
     );
 };

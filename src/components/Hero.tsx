@@ -1,8 +1,11 @@
+'use client';
 import Link from "next/link";
-import { RiArrowDownSLine } from "react-icons/ri";
+import { RiArrowDownSLine, RiBriefcaseFill, RiTeamFill, RiTodoFill } from "react-icons/ri";
 import { Button } from "./ui/button";
 import { Download, Send } from "lucide-react";
 import Social from "./Social";
+import Image from "next/image";
+import Badge from "./Badge";
 const Hero = () => {
     return (
         <section className="py-12 xl:py-24 h-[84vh] xl:pt-28">
@@ -31,8 +34,17 @@ const Hero = () => {
                     </div>
                     {/* image */}
                     <div className="hidden xl:flex relative">
-                        
+                        <Badge icon={<RiBriefcaseFill/> } containerStyles='absolute top-[24%] -left-[5rem]' endCountNum={2} start={0} badgeText='Years of Experience'/>
+                        <Badge icon={<RiTodoFill/> } containerStyles='absolute top-[70%] -left-[1rem] border' endCountNum={6} start={0} badgeText='Finish Projects'/>
+                        <Badge icon={<RiTeamFill/> } containerStyles='absolute top-[55%] -right-14' endCountNum={9} start={0} badgeText='Happy Clients'/>
+                        <div className="absolute top-16 -right-1">
+                             <Image src='/assets/hero/shape-2-light.svg' width={500} height={500} alt=''></Image>
+                        </div>
+                        <div className="relative bg-bottom">
+                             <Image src='/assets/hero/cover_2.svg' width={510} height={462} alt=''></Image>
+                        </div>
                     </div>
+
                 </div>
                 {/* icon */}
                 <div className="hidden md:flex absolute left-2/4 bottom-44 xl:bottom-12 animate-bounce">
