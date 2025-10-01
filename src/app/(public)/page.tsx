@@ -1,10 +1,12 @@
-import { auth } from "@/auth/authSetup";
+// import { auth } from "@/auth/authSetup";
+import Hero from "@/components/Hero";
 
 const HomePage = async () => {
-    const session = await auth();
+    // const session = await auth();
     return (
         <div>
-            <p>Home Page {session?.user?.email}</p>
+            {/* <p>Home Page {session?.user?.email}</p> */}
+            <Hero/>
         </div>
     );
 };
