@@ -3,15 +3,17 @@ import ArticleDetails from "@/components/ArticleDetails";
 const BlogPageDetails = async ({
   params,
 }: {
-  params: Promise<{ blogId: string }>;
+  params: { id: string };
 }) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`);
-    const { data: article } = await res.json();
-    // const { blogId } = await params;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post/${params.id}`, {
+    cache: "no-store",
+  });
+
+  const { data: article } = await res.json();
+    
     return (
         <div>
-            {/* <ArticleDetails article={article}/> */}
-            {/* {blogId} */}
+            <ArticleDetails article={article}/>
         </div>
     );
 };
