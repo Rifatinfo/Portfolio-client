@@ -1,6 +1,15 @@
+import { ReactNode } from 'react';
 import CountUp from 'react-countup';
 
-const Badge = ({containerStyles, icon, endCountNum, badgeText, start}) => {
+type BadgeProps = {
+  containerStyles?: string
+  icon: ReactNode
+  endCountNum: number
+  badgeText: string
+  start?: number
+}
+
+const Badge = ({containerStyles, icon, endCountNum, badgeText, start} : BadgeProps) => {
     return (
         <div className={`badge ${containerStyles}`}>
            <div className="text-3xl text-primary">{icon}</div>

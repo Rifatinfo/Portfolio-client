@@ -6,10 +6,14 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'local',
-       
-        pathname: '/public/assets/**',
-        // search: '',
+        hostname: 'i.ibb.co',
+        pathname: '/assets/**',
+
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**', // allow any path under i.ibb.co
       },
     ],
   },

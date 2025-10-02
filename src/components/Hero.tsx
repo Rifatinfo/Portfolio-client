@@ -6,25 +6,53 @@ import { Download, Send } from "lucide-react";
 import Social from "./Social";
 import Image from "next/image";
 import Badge from "./Badge";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import lightHeroImg from '../../public/assets/hero/hero-bg.png';
+import darkHeroImg from '../../public/assets/hero/shape-2-dark.svg';
 const Hero = () => {
+    const [bg, setBg] = useState<string>("");
+     const {theme} = useTheme();
+    useEffect(() => {
+        if(theme === 'light'){
+            setBg(`url(${lightHeroImg.src})`)
+        }else{
+            setBg(`url(${darkHeroImg.src})`)
+        }
+    },[theme])
+   
+    const backgroundImageStyle : React.CSSProperties = {
+        // backgroundImage: theme === 'dark' ? '' : 'url(https://i.ibb.co.com/BVWbZtcj/hero-bg.png)', 
+        backgroundImage: bg,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height: '100vh',
+        margin: 0,
+        padding: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    };
     return (
-        <section className="py-12 xl:py-24 h-[84vh] xl:pt-28">
+        <section style={backgroundImageStyle}  className="py-12 xl:py-24 h-[84vh] xl:pt-28">
             <div className="container mx-auto">
-                <div className="flex justify-between gap-x-8">
+                <div className="flex justify-between gap-x-8 md:0 p-2">
                     {/* text */}
                     <div className="flex flex-col justify-center max-w-[600px]  mx-auto xl:mx-0 text-center xl:text-left">
                         <div className="text-sm uppercase font-semibold mb-4 text-primary tracking-[4px]">Web Developer</div>
                         <h1 className="h1">Hello, My name is Md Rifat Hossain</h1>
                         <p className="subtitle max-w-[409px] mx-auto xl:mx-0">Brief description with insight into myself , my vocational journey , and what I engage in professionally</p>
-                        <div className="flex flex-col gap-y-3 md:flex-row gap-x-3 justify-start mb-6">
+                        <div className="flex flex-col gap-y-3 md:flex-row gap-x-3 auto xl:mx-0 mb-6">
                             <Link href="/contact">
                                 <Button className="gap-x-2">
                                     Contact me <Send size={18} />
                                 </Button>
                             </Link>
-                            <Button variant='secondary' className="gap-x-2">
-                                Download CV <Download size={18} />
-                            </Button>
+                            <Link href="/">
+                                <Button variant='secondary' className="gap-x-2">
+                                   Download CV <Download size={18} />
+                                </Button>
+                            </Link>
                         </div>
                         {/* social icon */}
                         <Social
