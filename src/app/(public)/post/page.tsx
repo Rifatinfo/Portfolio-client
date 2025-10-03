@@ -1,4 +1,5 @@
 import ArticleCard from "@/components/ArticleCard";
+import { Metadata } from "next";
 
 interface Article {
     id: string;
@@ -8,6 +9,13 @@ interface Article {
     content: string;
     view : number
 }
+
+export const metadata: Metadata = {
+    title : "All Blogs | Next Blogs",
+    description : "Browse all blog on web development"
+}
+
+
 
 
 const AllBlogPage = async () => {
