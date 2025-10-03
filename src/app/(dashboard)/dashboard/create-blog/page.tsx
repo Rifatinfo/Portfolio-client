@@ -1,9 +1,10 @@
+import CreateBlogForm from "@/components/CreateBlogForm";
 import React from "react";
 
 const CreateBlog = () => {
   return (
     <div className="w-full flex justify-center items-center">
-      <p>create blog form</p>
+       <CreateBlogForm/>
     </div>
   );
 };

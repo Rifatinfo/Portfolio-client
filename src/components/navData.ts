@@ -18,8 +18,8 @@ export const navData  : NavSection[] = [
     title: "Main",
     items: [
       { title: "Home", url: "/", icon: Home },
-      { title: "Blog", url: "/dashboard/create-blog", icon: Users },
-      { title: "Project", url: "/dashboard/project", icon: FileText },
+      { title: "Add Blog", url: "/dashboard/create-blog", icon: Users },
+      { title: "Add Project", url: "/dashboard/project", icon: FileText },
     ],
   },
   {
