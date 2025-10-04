@@ -14,9 +14,11 @@ export const generateStaticParams = async  () => {
 export const generateMetadata = async ({
   params,
 }: {
-  params: { id: string };
+  // params: { id: string };
+  params: Promise<{ id: string }>
 }) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post/${params.id}`);
+  const { id } = await params;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post/${id}`);
   const { data: article } = await res.json();
    
   return {
@@ -28,9 +30,10 @@ export const generateMetadata = async ({
 const BlogPageDetails = async ({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>
 }) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post/${params.id}`);
+  const { id } = await params;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post/${id}`);
 
   const { data: article } = await res.json();
     

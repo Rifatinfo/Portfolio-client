@@ -20,7 +20,7 @@ export default function CreateBlogForm() {
     }
   });
    await create(formData);
-  }
+   }
 
   return (
     <Form
@@ -104,7 +104,7 @@ export default function CreateBlogForm() {
 
       <Button
         type="submit"
-        className="w-full  text-white font-medium py-2 rounded-md  transition"
+        className="w-full  text-white font-medium py-2 rounded-md cursor-pointer transition"
       >
         Submit
       </Button>
