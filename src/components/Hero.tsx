@@ -22,7 +22,6 @@ const Hero = () => {
     },[theme])
    
     const backgroundImageStyle : React.CSSProperties = {
-        // backgroundImage: theme === 'dark' ? '' : 'url(https://i.ibb.co.com/BVWbZtcj/hero-bg.png)', 
         backgroundImage: bg,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

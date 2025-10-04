@@ -1,4 +1,5 @@
 // import { auth } from "@/auth/authSetup";
+import About from "@/components/About";
 import BlogCard from "@/components/Article";
 import Hero from "@/components/Hero";
 
@@ -9,6 +10,7 @@ const HomePage = async () => {
             {/* <p>Home Page {session?.user?.email}</p> */}
             <Hero/>
             <BlogCard/>
+            <About/>
         </div>
     );
 };
