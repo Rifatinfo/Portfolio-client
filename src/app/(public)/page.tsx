@@ -2,6 +2,7 @@
 import About from "@/components/About";
 import BlogCard from "@/components/Article";
 import Hero from "@/components/Hero";
+import Work from "@/components/Work";
 
 const HomePage = async () => {
     // const session = await auth();
@@ -9,8 +10,9 @@ const HomePage = async () => {
         <div>
             {/* <p>Home Page {session?.user?.email}</p> */}
             <Hero/>
-            <BlogCard/>
             <About/>
+            <Work/>
+            <BlogCard/>
         </div>
     );
 };

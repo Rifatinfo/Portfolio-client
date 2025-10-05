@@ -3,10 +3,11 @@ import CountUp from 'react-countup';
 
 type BadgeProps = {
   containerStyles?: string
-  icon: ReactNode
-  endCountNum: number
+  icon?: ReactNode
+  endCountNum?: number
   badgeText: string
   start?: number
+  children?: React.ReactNode;
 }
 
 const Badge = ({containerStyles, icon, endCountNum, badgeText, start} : BadgeProps) => {
@@ -15,7 +16,7 @@ const Badge = ({containerStyles, icon, endCountNum, badgeText, start} : BadgePro
            <div className="text-3xl text-primary">{icon}</div>
            <div className='flex items-center gap-x-2'>
             <div className='text-4xl leading-none font-bold text-primary'>
-                <CountUp end={endCountNum} start={start} delay={1} duration={4}/>
+                <CountUp end={endCountNum as number} start={start} delay={1} duration={4}/>
             </div>
             <div className='max-w-[70px] leading-none text-[15px] font-bold text-black'>
                 {badgeText}
