@@ -94,42 +94,7 @@ const About = () => {
             ]
         },
     ]
-    const skillData = [
-        {
-            title: 'skills',
-            data: [
-                {
-                    name: 'HTML, CSS'
-                },
-                {
-                    name: 'HTML, CSS'
-                },
-                {
-                    name: 'Front-end Developer'
-                },
-                {
-                    name: 'Javascript, PHP'
-                },
-                {
-                    name: 'Backend Developer'
-                },
-            ]
-        },
-        {
-            title: 'tools',
-            data: [
-                {
-                    imgPath: '/assets/vscode.svg'
-                },
-                {
-                    imgPath: '/assets/about/figma.svg'
-                },
-                {
-                    imgPath: '/assets/about/wordpress.svg'
-                },
-            ]
-        }
-    ]
+
 
 
 
@@ -282,52 +247,19 @@ const About = () => {
                                 <h4 className="text-xl font-semibold mb-2 xl:text-left">Tools</h4>
                                 <div className="border-b border-border mb-4"></div>
                                 {/* Skills */}
-                                {/* <div className="grid grid-cols-4 md:grid-cols-7 gap-6">
-                                    <Image className="shadow-xl" src="/assets/web/images.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/css.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/docker.webp" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/express.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/figma.png" width={40} height={40} alt=''></Image>
-                                    <Image src="/assets/web/Firebase.png" width={40} height={40} alt=''></Image>
-                                    <Image src="/assets/web/graphql.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/html.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/js.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/logo-sm.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/mongodb.png" width={30} height={30} alt=''></Image>
-                                    <Image src="/assets/web/mui.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/next.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/node-js.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/postger.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/prisma.webp" width={40} height={40} alt=''></Image>
-                                    <Image src="/assets/web/redux.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/react.png" width={50} height={50} alt=''></Image>
-                                    <Image src="/assets/web/tailwind.png" width={50} height={50} alt=''></Image>
-                                    <div className="p-4 rounded-2xl  backdrop-blur-md border  hover:scale-105 transition-transform duration-300 shadow-lg">
-                                        <Image
-                                            src="/assets/web/tailwind.png"
-                                            width={50}
-                                            height={50}
-                                            alt="Tailwind CSS Logo"
-                                            className="object-contain drop-shadow-md"
-                                        />
-                                    </div>
-
-
-
-                                </div> */}
+                                
                                 <div className="grid grid-cols-4 md:grid-cols-7 gap-6 place-items-center">
                                     {[
                                         "/assets/web/images.png",
                                         "/assets/web/css.png",
                                         "/assets/web/docker.webp",
                                         "/assets/web/express.png",
-                                        // "/assets/web/figma.png",
-                                        // "/assets/web/Firebase.png",
+                                      
                                         "/assets/web/graphql.png",
                                         "/assets/web/html.png",
                                         "/assets/web/js.png",
                                         "/assets/web/logo-sm.png",
-                                        // "/assets/web/mongodb.png",
+                                    
                                         "/assets/web/mui.png",
                                         "/assets/web/next.png",
                                         "/assets/web/node-js.png",
