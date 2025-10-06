@@ -1,8 +1,9 @@
+import CreateProjectForm from "@/components/CreateProjectForm";
 
 const ProjectPage = () => {
     return (
         <div>
-            <p>ProjectPage</p>
+          <CreateProjectForm/>
         </div>
     );
 };

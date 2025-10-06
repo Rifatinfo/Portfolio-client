@@ -2,14 +2,11 @@
 import Image from "next/image";
 import { Card, CardHeader } from "./ui/card";
 import { useTheme } from "next-themes";
-type Project = {
-    image: string;
-    category: string;
-    name: string;
-    description: string;
-    link: string;
-    github: string;
-};
+import { Project } from "./Work";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Link2Icon } from "lucide-react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 type ProjectCardProps = {
     project: Project;
@@ -17,9 +14,20 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
     const { theme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-    const backgroundImage = theme === 'light' 
-        ? '/assets/work/project-bg-light.png' 
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) {
+        // Render a placeholder during SSR to avoid mismatch
+        return (
+            <div className="relative w-full h-[300px] flex items-center justify-center bg-tertiary dark:bg-secondary/40" />
+        );
+    }
+    const backgroundImage = theme === 'light'
+        ? '/assets/work/project-bg-light.png'
         : '/assets/work/project-bg-dark.png';
 
     const backgroundImageStyle: React.CSSProperties = {
@@ -36,15 +44,38 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             <Card className="group overflow-hidden relative hover:scale-105 hover:shadow-[#F3705C]/30 transition-all duration-300">
                 <CardHeader className="p-0">
                     <div style={backgroundImageStyle} className="relative w-full h-[300px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 ">
-                        <Image className="absolute bottom-0 shadow-2xl rounded-2xl" src='/assets/work/1.png' width={247} height={240} alt=''></Image>
+                        {project.thumbnail ? (
+                            <Image className="absolute bottom-0 shadow-2xl rounded-2xl" src={project.thumbnail} width={247} height={240} alt={project.title || 'Project thumbnail'}></Image>
+                        ) : (<div className="absolute bottom-0 w-[247px] h-[240px] bg-gray-300 rounded-2xl flex items-center justify-center text-gray-600">
+                            No Image
+                        </div>)}
+                        <div className="flex gap-x-4">
+                            <Link href={project.live_url} className="bg-secondary w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all">
+                                <Link2Icon className="text-primary" />
+                            </Link>
+                            <Link href={project.github} className="bg-secondary w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all">
+                                <GitHubLogoIcon  className="text-primary" />
+                            </Link>
+                        </div>
                     </div>
+
                 </CardHeader>
                 <div className="px-4 py-2">
-                        <span className="absolute top-2 left-5 bg-primary text-white  font-semibold px-3 py-1 rounded-full shadow-md">
-                          {project.category}
+                    {project.tech.slice(0, 1).map((tag, idx) => (
+                        <span key={idx} className="absolute top-2 left-5 bg-primary text-white  font-semibold px-3 py-1 rounded-full shadow-md">
+                            {tag}
                         </span>
-                    <h4 className="h4 mb-1">{project.name}</h4>
-                    <p className="text-muted-foreground">{project.description}</p>
+                    ))}
+                    {project.tech.slice(2).map((tag, idx) => (
+                        <span
+                            key={idx}
+                            className="inline-block bg-gray-100 text-gray-800 px-4 py-1 mb-2 rounded-full text-sm font-semibold"
+                        >
+                            {tag}
+                        </span>
+                    ))}
+                    <h4 className="h4 mb-1">{project.title}</h4>
+                    <p className="text-muted-foreground">{project.desc}</p>
                 </div>
             </Card>
         </div>

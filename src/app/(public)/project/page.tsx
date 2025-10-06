@@ -1,13 +1,28 @@
-// import ProjectCard from "@/components/ProjectCard";
 
-const Project = () => {
+type Project = {
+  thumbnail: string;
+  tech: string[];
+  title: string;
+  desc: string;
+  live_url: string;
+  github: string;
+};
+
+import ProjectCard from "@/components/ProjectCard";
+const Project = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`, {
+        next: {
+            tags: ["PROJECT"]
+        }
+    });
+    const { data: project } = await res.json();
     return (
-        <div>
-            {/* <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-                {projectData.slice(0, 3).map((project, idx) => (
-                    <ProjectCard key={idx} project={project} />
-                ))}
-            </div> */}
+        <div className="container mx-auto md:p-0 p-2">
+            <div className="grid grid-cols-1 xl:grid-cols-4 gap-4">
+                {project.slice(0, 3).map((project : Project, idx : number) => (
+                <ProjectCard key={idx} project={project} />
+              ))}
+            </div>
         </div>
     );
 };
