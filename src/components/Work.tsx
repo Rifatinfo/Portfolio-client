@@ -17,12 +17,12 @@ export type Project = {
 
 
 const Work = async () => {
-   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`, {
-        next : {
-            tags : ["PROJECT"]
-        }
-    });
-    const {data : project} = await res.json();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`, {
+    next: {
+      tags: ["PROJECT"]
+    }
+  });
+  const { data: project } = await res.json();
   return (
     <section className="relative mb-12 xl:mb-48 mt-12 md:p-0 p-4">
       <div className="container mx-auto">
@@ -51,9 +51,15 @@ const Work = async () => {
           {/* Slider Column */}
           <div className="flex-1">
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-              {project.slice(0, 3).map((project : Project, idx : number) => (
+              {project?.slice(0, 3).map((project: Project, idx: number) => (
                 <ProjectCard key={idx} project={project} />
               ))}
+            </div>
+
+            <div className="flex justify-center gap-2 m-0 mt-12">
+              <button className="w-2.5 h-2.5 scale-125 bg-primary rounded-full"></button>
+              <button className="w-2 h-2 bg-primary rounded-full Dark:bg-primary"></button>
+              <button className="w-2 h-2 bg-primary rounded-full Dark:bg-primary"></button>
             </div>
           </div>
         </div>

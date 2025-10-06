@@ -2,6 +2,7 @@
 import About from "@/components/About";
 import BlogCard from "@/components/Article";
 import Hero from "@/components/Hero";
+import Testimonial from "@/components/Testimonial";
 import Work from "@/components/Work";
 
 const HomePage = async () => {
@@ -12,6 +13,7 @@ const HomePage = async () => {
             <Hero/>
             <About/>
             <Work/>
+            <Testimonial/>
             <BlogCard/>
         </div>
     );

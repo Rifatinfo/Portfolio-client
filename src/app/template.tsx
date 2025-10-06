@@ -27,7 +27,7 @@ const Template = ({children} : TemplateProps ) => {
             style={{ height: `${completion}%` }}
             className='fixed z-50 bg-primary w-1 top-0 right-0 border-0 translation-all duration-700'
             ></span>
-            <div className='h-[4000px]'></div>
+            <div></div>
         </div>
     );
 };

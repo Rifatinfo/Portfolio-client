@@ -40,7 +40,7 @@ const Article = async () => {
                         </Link>
                     </div>
                 </div>
-                {article.slice(0,3).map((item : Article, idx : number) => (
+                {article?.slice(0,3).map((item : Article, idx : number) => (
                     <ArticleCard item={item} key={idx}/>
                 ))}
             </div>

@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -10,8 +11,8 @@ const PublicLayout = ({
     <div>
       <ThemeProvider attribute='class' defaultTheme='light'>
         <Header />
-        <main className="min-h-dvh">{children}</main>
-        <p>Footer</p>
+        <main className="min-h-screen">{children}</main>
+        <Footer/>
       </ThemeProvider>
     </div>
   );

@@ -30,10 +30,13 @@ export const generateMetadata = async ({
 const BlogPageDetails = async ({
   params,
 }: {
+    // params: { id: string };
+
   params: Promise<{ id: string }>
 }) => {
   const { id } = await params;
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post/${id}`);
+  // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post/${params.id}`);
 
   const { data: article } = await res.json();
     
