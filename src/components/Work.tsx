@@ -74,7 +74,7 @@ const Work = () => {
           {/* Slider Column */}
           <div className="flex-1">
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-              {projectData.slice(0, 4).map((project, idx) => (
+              {projectData.slice(0, 3).map((project, idx) => (
                 <ProjectCard key={idx} project={project} />
               ))}
             </div>
