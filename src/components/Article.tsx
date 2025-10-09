@@ -12,7 +12,7 @@ interface Article {
 
 
 const Article = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`, {
+    const res = await fetch(`https://portfolio-puce-six-73.vercel.app/api/post`, {
         next : {
             tags : ["BLOGS"]
         }

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 
 const AllBlogPage = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`, {
+    const res = await fetch(`https://portfolio-puce-six-73.vercel.app/api/post`, {
       cache: "no-store"
     });
     const { data: article } = await res.json();

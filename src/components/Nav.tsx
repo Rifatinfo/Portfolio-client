@@ -12,7 +12,7 @@ const links = [
     {path : '/', name : 'home'},
     {path : '/project', name : 'my projects'},
     {path : '/contact', name : 'contact'},
-    {path : '/blog', name : 'blog'},
+    {path : '/post', name : 'Article'},
 ]
 
 const Nav = ({containerStyles, linkStyles, underLineStyles} : NavProps) => {

@@ -1,11 +1,11 @@
 "use server";
 
-import { auth } from "@/auth/authSetup";
+// import { auth } from "@/auth/authSetup";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function create(formData: FormData) {
-  const session = await auth();
+  // const session = await auth();
 
  const files = formData.getAll("files") as File[];
 
@@ -23,7 +23,7 @@ export async function create(formData: FormData) {
     title : blogInfo.title,
     content : blogInfo.content,
     // authorId : "be4fe9c3-c679-4ff8-949e-4585fc348e4b",
-    authorId : session?.user?.id,
+    // authorId : session?.user?.id,
     tags : blogInfo.tags
     .toString()
     .split(",")
@@ -40,7 +40,7 @@ export async function create(formData: FormData) {
     }
   })
   
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`,{
+  const res = await fetch(`https://portfolio-puce-six-73.vercel.app/api/post`,{
     method : "POST",
     body : sendData
   })

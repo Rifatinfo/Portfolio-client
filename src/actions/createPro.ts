@@ -37,7 +37,7 @@ export async function createPro(formData: FormData) {
     }
   })
   
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`,{
+  const res = await fetch(`https://portfolio-puce-six-73.vercel.app/api/project`,{
     method : "POST",
     body : sendData
   })

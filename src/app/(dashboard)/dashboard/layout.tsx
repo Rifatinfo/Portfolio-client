@@ -15,7 +15,7 @@ const DashboardLayout = async ({
     children: React.ReactNode
 }) => {
 
-    const session = await auth();
+    const session = await auth();    
     if(!session){
         return (
       <div className="flex h-screen w-full items-center justify-center bg-gray-100">

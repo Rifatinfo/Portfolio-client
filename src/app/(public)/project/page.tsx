@@ -10,7 +10,7 @@ type Project = {
 
 import ProjectCard from "@/components/ProjectCard";
 const Project = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`, {
+    const res = await fetch(`https://portfolio-puce-six-73.vercel.app/api/project`, {
         next: {
             tags: ["PROJECT"]
         }
