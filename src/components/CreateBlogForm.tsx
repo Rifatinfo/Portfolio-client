@@ -8,6 +8,7 @@ import { Input } from "./ui/input";
 import MultipleImageUploader from "./MultipleImageUploader";
 import { create } from "@/actions/create";
 import { FileMetadata } from "@/hooks/use-file-upload";
+import { SubmitButton } from "./ui/modules/auth/SubmitButton";
 
 export default function CreateBlogForm() {
   const [isFeatured, setIsFeatured] = useState("false");
@@ -102,12 +103,13 @@ export default function CreateBlogForm() {
         </div>
       </div>
 
-      <Button
+      {/* <Button
         type="submit"
         className="w-full  text-white font-medium py-2 rounded-md cursor-pointer transition"
       >
         Submit
-      </Button>
+      </Button> */}
+      <SubmitButton/>
     </Form>
   );
 }

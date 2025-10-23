@@ -19,7 +19,9 @@ export const navData  : NavSection[] = [
     items: [
       { title: "Home", url: "/", icon: Home },
       { title: "Add Blog", url: "/dashboard/create-blog", icon: Users },
+      { title: "Blog Action", url: "/dashboard/blog-action", icon: Users },
       { title: "Add Project", url: "/dashboard/project", icon: FileText },
+      { title: "Project Action", url: "/dashboard/project-action", icon: FileText },
     ],
   },
   {

@@ -1,5 +1,5 @@
 
-type Project = {
+export type Project = {
   thumbnail: string;
   tech: string[];
   title: string;
@@ -19,7 +19,7 @@ const Project = async () => {
     return (
         <div className="container mx-auto md:p-0 p-2">
             <div className="grid grid-cols-1 xl:grid-cols-4 gap-4">
-                {project.slice(0, 3).map((project : Project, idx : number) => (
+                {project?.map((project : Project, idx : number) => (
                 <ProjectCard key={idx} project={project} />
               ))}
             </div>

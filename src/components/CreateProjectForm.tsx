@@ -8,6 +8,7 @@ import Form from "next/form";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import MultipleImageUploader from "./MultipleImageUploader";
+import { SubmitButton } from "./ui/modules/auth/SubmitButton";
 
 const CreateProjectForm = () => {
     const [images, setImages] = useState<(File | FileMetadata
@@ -27,7 +28,7 @@ const CreateProjectForm = () => {
                 action={handleImage}
                 className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg space-y-4 w-full"
             >
-                <h2 className="text-xl font-semibold mb-4">Create Blog</h2>
+                <h2 className="text-xl font-semibold mb-4">Create Project</h2>
 
                 {/* Title */}
                 <div>
@@ -102,12 +103,13 @@ const CreateProjectForm = () => {
                 </div>
 
 
-                <Button
+                {/* <Button
                     type="submit"
                     className="w-full  text-white font-medium py-2 rounded-md cursor-pointer transition"
                 >
                     Submit
-                </Button>
+                </Button> */}
+                <SubmitButton />
             </Form>
         </div>
     );
