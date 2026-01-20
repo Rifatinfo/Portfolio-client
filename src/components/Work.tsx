@@ -40,7 +40,7 @@ const Work = async () => {
             </h2>
             <div className="flex flex-col items-center justify-center w-full">
               <p className="subtitle-title mb-4">
-                Lorem ipsum. Qui, conse quatur.
+                Find My Latest Work , Let&rsquo;s see my project.
               </p>
               <Link href="/project">
                 <Button>All Project</Button>

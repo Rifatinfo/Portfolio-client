@@ -1,12 +1,14 @@
 'use client';
-import Image from "next/image";
+// import Image from "next/image";
 import { Card, CardHeader } from "./ui/card";
 import { useTheme } from "next-themes";
 import { Project } from "./Work";
 import { useEffect, useState } from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import { Link2Icon } from "lucide-react";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
+import Link from "next/link";
 
 type ProjectCardProps = {
     project: Project;
@@ -66,7 +68,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                             {tag}
                         </span>
                     ))}
-                    {project.tech.slice(2).map((tag, idx) => (
+                    {project.tech.map((tag, idx) => (
                         <span
                             key={idx}
                             className="inline-block bg-gray-100 text-gray-800 px-4 py-1 mb-2 rounded-full text-sm font-semibold"

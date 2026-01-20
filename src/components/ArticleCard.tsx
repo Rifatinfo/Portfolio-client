@@ -55,7 +55,7 @@ const ArticleCard = ({ item }: ArticleCardProps) => {
                         </h2>
 
                         {/* Description */}
-                        <p className="text-sm text-gray-600">{item.content}</p>
+                        {/* <p className="text-sm text-gray-600">{item.content}</p> */}
 
                         {/* Read more */}
                         <div className="flex justify-between items-center">

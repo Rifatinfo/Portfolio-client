@@ -67,12 +67,12 @@ const About = () => {
             title: 'education',
             data: [
                 {
-                    university: 'Example Collage',
+                    university: 'DZ College',
                     qualification: 'Higher Secondary',
                     years: '2018-2020'
                 },
                 {
-                    university: 'Texas University',
+                    university: 'BU University',
                     qualification: 'Bachelor of Science',
                     years: '2025-2026'
                 }
@@ -82,14 +82,14 @@ const About = () => {
             title: 'experience',
             data: [
                 {
-                    company: 'Example Company',
-                    qualification: 'software Engineer',
-                    years: '2018-2020'
+                    company: 'Frontend Technology',
+                    qualification: 'Frontend Development',
+                    years: '2023-2024'
                 },
                 {
-                    company: 'Example Company',
-                    qualification: 'software Engineer',
-                    years: '2018-2020'
+                    company: 'Backend Technology',
+                    qualification: 'Backend Development',
+                    years: '2014-2026'
                 }
             ]
         },
