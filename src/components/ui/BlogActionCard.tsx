@@ -11,6 +11,10 @@ import {
 } from "@/components/ui/table";
 import { DeleteIcon, SquareArrowOutUpRight } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "sonner";
+import DeleteConfirmation from "./DeleteConfirmation";
 
 interface Article {
     id: string;
@@ -26,6 +30,28 @@ interface BlogActionCardProps {
 }
 
 const BlogActionCard = ({ articles }: BlogActionCardProps) => {
+    const [data, setData] = useState(articles);
+    const router = useRouter();
+    const handleDelete = async (id: string) => {
+        // if (!confirm("Are you sure you want to delete this post?")) return;
+
+        try {
+            const res = await fetch(`https://portfolio-puce-six-73.vercel.app/api/post/${id}`,
+                { method: "DELETE", credentials: "include" }
+            )
+
+            const result = await res.json();
+
+            if (res.ok && result.success !== false) {
+                toast.success("Post deleted Successfully!");
+                setData(prev => prev.filter(item => item.id !== id));
+                router.refresh();
+            }
+        } catch (error) {
+            console.error(error);
+            toast.error("Something went wrong!");
+        }
+    }
     return (
         <div>
             <Table>
@@ -41,7 +67,7 @@ const BlogActionCard = ({ articles }: BlogActionCardProps) => {
                 </TableHeader>
 
                 <TableBody>
-                    {articles?.map((item, idx) => (
+                    {data?.map((item, idx) => (
                         <TableRow key={idx}>
                             <TableCell className="font-medium">{item.title}</TableCell>
                             <TableCell>
@@ -69,7 +95,12 @@ const BlogActionCard = ({ articles }: BlogActionCardProps) => {
                                 <SquareArrowOutUpRight className="size-5 cursor-pointer" />
                             </TableCell>
                             <TableCell>
-                                <DeleteIcon className="text-red-600 size-6 cursor-pointer" />
+                                {/* <DeleteIcon onClick={() => handleDelete(item.id)} className="text-red-600 size-6 cursor-pointer" /> */}
+                                <DeleteConfirmation onConfirm={() => handleDelete(item.id)}>
+                                    <DeleteIcon
+                                        className="text-red-600 size-6 cursor-pointer hover:text-red-800 transition-colors"
+                                    />
+                                </DeleteConfirmation>
                             </TableCell>
                         </TableRow>
                     ))}

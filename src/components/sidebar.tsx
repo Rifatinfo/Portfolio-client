@@ -1,7 +1,7 @@
 
 import Link from "next/link";
 import { navData } from "./navData";
-import { signOut } from "@/auth/authSetup";
+// import { signOut } from "@/auth/authSetup";
 
 
 export default async function Sidebar() {
@@ -24,7 +24,7 @@ export default async function Sidebar() {
                    key={j+1}
                   action={async () => {
                     "use server"
-                    await signOut()
+                    // await signOut()
                   }}
                 ><button
                   key={j}
